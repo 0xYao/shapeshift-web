@@ -54,4 +54,16 @@ function reporter<T>({ errors }: envalid.ReporterOptions<T>) {
   })
 }
 
-export const getConfig = () => cleanEnv(env, validators, { reporter })
+const getConfigInner = () => cleanEnv(env, validators, { reporter })
+
+const configWrapper: { config: ReturnType<typeof getConfigInner> | undefined } = {
+  config: undefined,
+}
+
+export const getConfig = () => {
+  if (configWrapper.config === undefined) {
+    configWrapper.config = Object.freeze(getConfigInner())
+    Object.freeze(configWrapper)
+  }
+  return configWrapper.config
+}
