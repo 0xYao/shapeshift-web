@@ -1,5 +1,6 @@
 import { ChainAdapter } from '@shapeshiftoss/chain-adapters'
 import { ChainTypes } from '@shapeshiftoss/types'
+import { getConfig } from 'config'
 import { logger } from 'lib/logger'
 import { FeatureFlags } from 'state/slices/preferencesSlice/preferencesSlice'
 
@@ -8,6 +9,7 @@ import { Route } from '../Routes/helpers'
 const moduleLogger = logger.child({ namespace: ['PluginManager'] })
 
 const activePlugins = ['bitcoin', 'cosmos', 'ethereum', 'foxPage', 'osmosis']
+if (getConfig().REACT_APP_FEATURE_PENDO) activePlugins.push('pendo')
 
 export type Plugins = [chainId: string, chain: Plugin][]
 export type RegistrablePlugin = { register: () => Plugins }

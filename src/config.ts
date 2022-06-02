@@ -44,6 +44,12 @@ const validators = {
   REACT_APP_FEATURE_KEPLR_WALLET: bool({ default: false }),
   REACT_APP_TOKEMAK_STATS_URL: url({ default: 'https://stats.tokemaklabs.com/' }),
   REACT_APP_COINGECKO_API_KEY: str({ default: '' }), // not required, we can fall back to the free tier
+  REACT_APP_FEATURE_PENDO: bool({ default: false }),
+  REACT_APP_PENDO_UNSAFE_DESIGNER_MODE: bool({ default: false }),
+  REACT_APP_PENDO_API_KEY: str(),
+  REACT_APP_PENDO_SUB_ID: str(),
+  REACT_APP_PENDO_VISITOR_ID_PREFIX: str({ default: '' }),
+  REACT_APP_PENDO_CONSENT_VERSION: str(),
 }
 
 function reporter<T>({ errors }: envalid.ReporterOptions<T>) {
