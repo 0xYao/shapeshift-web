@@ -113,7 +113,7 @@
     "lint:fix": "yarn lint --fix",
     "lint:cypress:fix": "yarn lint:cypress --fix",
     "minify": "yarn yarn-minify",
-    "test": "yarn jest --preset ts-jest headers react-app-rewired && react-app-rewired test --coverage --watchAll=false",
+    "test": "yarn jest --preset ts-jest react-app-rewired && react-app-rewired test --coverage --watchAll=false",
     "test:cypress": "yarn cypress open",
     "test:cypress:headless": "yarn cypress run --headless",
     "test:cypress:rerecord": "yarn cypress run --browser chrome --headless --env forceRecord=true",
